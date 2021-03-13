@@ -1,6 +1,10 @@
 mysql_install_db --user=mysql --datadir=/var/lib/mysql
+mv mariadb-server.cnf /etc/my.cnf.d/
 rc-status
 rc-service mariadb start
-mysqladmin -u root password toor
+mysql  -e "GRANT ALL PRIVILEGES ON *.* TO 'lorus'@'%' IDENTIFIED BY 'lorus';"
+mysql -e "CREATE DATABASE WORDPRESS;"
+mysql -u root WORDPRESS < WORDPRESS.sql
 apk update
-tail -f >> /dev/null
+rc-service mariadb restart
+tail -f /dev/null

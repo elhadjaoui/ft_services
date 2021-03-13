@@ -4,6 +4,7 @@ RUN apk add openrc mysql mysql-client
 RUN mkdir /simo
 COPY ./srcs/* /simo/
 WORKDIR /simo
+EXPOSE 3333
 RUN mkdir /run/openrc
 RUN touch /run/openrc/softlevel
 CMD sh Services.sh

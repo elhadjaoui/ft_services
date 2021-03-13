@@ -1,7 +1,11 @@
+apk update
+rc-status
 mv default.conf /etc/nginx/conf.d
 tar -xvf latest.tar.gz
 mv wordpress /var/www/html/
-rc-status
+mv wp-config.php  /var/www/html/
 service php-fpm7 start
+service nginx start
 apk update
-nginx -g "daemon off;"
+service nginx restart
+tail -f /dev/null
