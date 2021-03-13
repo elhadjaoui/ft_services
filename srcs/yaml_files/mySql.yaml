@@ -24,7 +24,7 @@ kind: Service
 metadata:
   name: mysql-service
   annotations:
-    metallb.universe.tf/allow-shared-ip: share
+   metallb.universe.tf/allow-shared-ip: shared
 spec:
   selector:
     app: mysql
