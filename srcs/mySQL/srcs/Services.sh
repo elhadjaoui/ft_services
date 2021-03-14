@@ -4,7 +4,7 @@ rc-status
 rc-service mariadb start
 mysql  -e "GRANT ALL PRIVILEGES ON *.* TO 'lorus'@'%' IDENTIFIED BY 'lorus';"
 mysql -e "CREATE DATABASE WORDPRESS;"
-# mysql -u root WORDPRESS < WORDPRESS.sql
+mysql -u root WORDPRESS < WORDPRESS.sql
 apk update
 rc-service mariadb restart
 tail -f /dev/null
