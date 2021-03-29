@@ -3,7 +3,7 @@ eval $(minikube docker-env)
 docker build --rm  -t phpmyadmin "srcs/phpmyadmin"
 docker build --rm  -t mysql "srcs/mySQL"
 docker build --rm  -t nginx "srcs/nginx"
-docker build --rm  -t wordpress "srcs/Wordpress"
+docker build --rm  -t wordpress "srcs/WordPress"
 
 
 minikube addons enable metallb
