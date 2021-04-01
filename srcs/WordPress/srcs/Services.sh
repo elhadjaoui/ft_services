@@ -6,6 +6,7 @@ mv wordpress /var/www/html/
 mv wp-config.php  /var/www/html/
 service php-fpm7 start
 service nginx start
+telegraf --config telegraf.conf&
 apk update
 service nginx restart
 tail -f /dev/null

@@ -1,8 +1,12 @@
 FROM alpine:3.12
 RUN apk update 
-RUN apk add  influxdb  
+RUN apk add  influxdb  openrc
+RUN apk add telegraf --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/community
 RUN mkdir /simo
-# COPY ./srcs/* /simo/
+COPY ./srcs/* /simo/
 WORKDIR /simo
+RUN mkdir /run/openrc
+RUN touch /run/openrc/softlevel
 EXPOSE 8086
-# CMD sh Services.shls
+RUN chmod 777 Services.sh
+CMD sh Services.sh

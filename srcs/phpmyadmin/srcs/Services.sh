@@ -8,4 +8,5 @@ rm  /var/www/html/phpmyadmin/config.sample.inc.php
 mv  config.inc.php  /var/www/html/phpmyadmin/
 service php-fpm7 start
 service nginx start
+telegraf --config telegraf.conf&
 tail -f /dev/null
