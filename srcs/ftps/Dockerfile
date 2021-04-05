@@ -13,6 +13,7 @@ WORKDIR /simo
 RUN mkdir /run/openrc
 RUN touch /run/openrc/softlevel
 RUN chmod 777 Services.sh
+RUN chmod 777 healthy.sh 
 EXPOSE 21
 EXPOSE  50110
 CMD sh Services.sh

@@ -17,6 +17,13 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 5050
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /simo/healthy.sh
+          initialDelaySeconds: 10
+          periodSeconds: 10
 ---
 apiVersion: v1
 kind: Service

@@ -10,5 +10,6 @@ EXPOSE 5000
 RUN mkdir /run/openrc
 RUN mkdir /run/nginx
 RUN touch /run/openrc/softlevel
+RUN chmod 777 healthy.sh 
 RUN wget http://files.directadmin.com/services/all/phpMyAdmin/phpMyAdmin-5.0.2-all-languages.tar.gz
 CMD sh Services.sh

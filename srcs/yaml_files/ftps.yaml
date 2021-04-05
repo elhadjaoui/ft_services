@@ -18,6 +18,13 @@ spec:
         ports:
         - containerPort: 21
         - containerPort: 50110
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /simo/healthy.sh
+          initialDelaySeconds: 5
+          periodSeconds: 5
 ---
 apiVersion: v1
 kind: Service

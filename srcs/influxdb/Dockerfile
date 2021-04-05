@@ -9,4 +9,5 @@ RUN mkdir /run/openrc
 RUN touch /run/openrc/softlevel
 EXPOSE 8086
 RUN chmod 777 Services.sh
+RUN chmod 777 healthy.sh 
 CMD sh Services.sh

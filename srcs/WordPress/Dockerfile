@@ -10,5 +10,6 @@ EXPOSE 5050
 RUN mkdir /run/openrc
 RUN mkdir /run/nginx
 RUN touch /run/openrc/softlevel
+RUN chmod 777 healthy.sh 
 RUN wget http://wordpress.org/latest.tar.gz
 CMD sh Services.sh

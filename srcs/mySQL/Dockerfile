@@ -7,5 +7,6 @@ COPY ./srcs/* /simo/
 WORKDIR /simo
 EXPOSE 3333
 RUN mkdir /run/openrc
+RUN chmod 777 healthy.sh 
 RUN touch /run/openrc/softlevel
 CMD sh Services.sh

@@ -15,9 +15,23 @@ spec:
       - name: mysql
         image: mysql
         imagePullPolicy: Never
-        
         ports:
         - containerPort: 3306
+        livenessProbe:
+          exec:
+            command:
+            - sh
+            - /simo/healthy.sh
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+   
 ---
 apiVersion: v1
 kind: Service
@@ -31,4 +45,16 @@ spec:
   ports:
   - port: 3306
     targetPort: 3306
-
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
